@@ -1,0 +1,43 @@
+## Installations
+pip install transformers torch
+pip install bert-extractive-summarizer
+## Import Libraries :
+from summarizer import Summarizer
+
+# Load the BERT summarizer
+model = Summarizer()
+
+# Input text
+input_text = """
+Your long input text goes here. 
+This should be a document or a paragraph that you want to summarize.
+It can be multiple sentences long.
+"""
+
+# Generate the summary
+summary = model(input_text)
+
+# Print the summary
+print(summary)
+
+
+## Alternate :
+#Load model :
+
+from transformers import BertTokenizer, BertModel
+import torch
+
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+model = BertModel.from_pretrained('bert-base-uncased')
+
+sentences = [
+    "This is the first sentence.",
+    "Here is another sentence.",
+    "This is the third sentence.",
+    # Add more sentences from your text
+]
+
+inputs = tokenizer(sentences, return_tensors='pt', padding=True, truncation=True)
+with torch.no_grad():
+    outputs = model(**inputs)
+
