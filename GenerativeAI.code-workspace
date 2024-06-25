@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "GenerativeAI-1",
+			"path": "../GenerativeAI-1"
+		}
+	],
+	"settings": {}
+}
